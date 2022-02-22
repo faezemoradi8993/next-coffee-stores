@@ -57,7 +57,7 @@ function Id(props) {
               className=" text-blue-600 hover:text-blue-300 font-bold"
               href={props.post?.address}
             >
-              Go to website >
+              Go to website 
             </a>
           </div>
           <div className="flex items-center justify-center m-3 bg-white rounded-md">
