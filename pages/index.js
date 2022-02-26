@@ -12,8 +12,12 @@ export async function getStaticProps() {
 export default function Home(props) {
   const onClickHandler = () => {
     console.log("banner btn clicked");
-  };
-  loadGetInitialProps.posts;
+    const options = {method: 'GET', headers: {Accept: 'application/json'}};
+
+    fetch('https://api.foursquare.com/v3/venues/search?query=coffee&ll=43.6%2C%20-79.3&v=20220122&client_id=AYTM0VOTYHW2JLF3WI21MBD12TXXH0HYNXEBZIMFX51HYPDN&client_secret=YPRLGRUEU5NITT2D3VNMYUER2BS54VFG32VQPIBFU01A0ZLU', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));}
   return (
     <>
       <Head>
@@ -33,8 +37,8 @@ export default function Home(props) {
             alt="coffee"
           />
         </div>
-        <Heading title="nearby coffee stores" />
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 ">
+        <Heading title="Toronto stores" />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 px-5">
           {props.post &&
             data.map((c) => (
               <Card key={c.id} name={c.name} to={c.id} imageURL={c.imgUrl} />
